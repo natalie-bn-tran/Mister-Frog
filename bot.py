@@ -2,6 +2,8 @@ from config import *
 
 import discord
 from discord.ext import commands
+from datetime import datetime
+import pytz
 
 prefix = "/"
 
@@ -22,4 +24,20 @@ async def greet(ctx):
 async def whoami(ctx):
     await ctx.send(f"{ctx.author}-frog")
 
+'''@bot.command(name='gettime', hour, min, month, day, year)
+async def gettime(ctx, hour, minute, month, day, year):
+    la_time = pytz.timezone("America/Los_Angeles")
+    hour = hour
+    min = min
+    month = month
+    day = day
+    year = year
+
+    try:
+        date = datetime(year, month, day, hour, min)
+        la_date = la_time.localize(date)
+        ctx.send(la_date)
+    except:
+        ctx.send("Something went wrong")
+'''
 bot.run(bot_token)
